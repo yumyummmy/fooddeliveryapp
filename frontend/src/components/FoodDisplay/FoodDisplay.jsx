@@ -12,16 +12,19 @@ const FoodDisplay = ({ category }) => {
       <div className="food-display-list">
         {/* fooditemにmapで受け渡す */}
         {food_list.map((item, index) => {
-          return (
-            <FoodItem
-              key={index}
-              id={item._id}
-              name={item.name}
-              description={item.description}
-              price={item.price}
-              image={item.image}
-            />
-          );
+          //カテゴリーの選択時にフィルター化させる
+          if (category === "All" || category === item.category) {
+            return (
+              <FoodItem
+                key={index}
+                id={item._id}
+                name={item.name}
+                description={item.description}
+                price={item.price}
+                image={item.image}
+              />
+            );
+          }
         })}
       </div>
     </div>
