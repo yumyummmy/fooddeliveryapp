@@ -21,7 +21,7 @@ export const StoreContextProvider = (props) => {
   };
 
   useEffect(() => {
-    console.log(cartItems);
+    // console.log(cartItems);
   }, [cartItems]);
 
   // valueプロパティを通じて子に渡す

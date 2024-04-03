@@ -2,34 +2,39 @@ import React from "react";
 import { useState } from "react";
 import { assets } from "../../assets/assets";
 import "./Navbar.css";
-const Navbar = () => {
-  //クリックしているとこrに
+import { Link } from "react-router-dom";
+const Navbar = ({ setShowLogin }) => {
+  //クリックしているとこrに飛ぶ
   const [menu, setMenu] = useState("home");
   return (
     <div className="navbar">
       <img src={assets.logo} alt="" className="logo" />
       <ul className="navbar-menu">
-        <li
+        <Link
+          to="/"
           onClick={() => setMenu("home")}
           className={menu === "home" ? "active" : ""}>
           home
-        </li>
+        </Link>
 
-        <li
+        <a
+          href="#exprole-menu"
           onClick={() => setMenu("menu")}
           className={menu === "menu" ? "active" : ""}>
           menu
-        </li>
-        <li
+        </a>
+        <a
+          href="#app-download"
           onClick={() => setMenu("mobile-app")}
           className={menu === "mobile-app" ? "active" : ""}>
           mobile-app
-        </li>
-        <li
+        </a>
+        <a
+          href="#footer"
           onClick={() => setMenu("contact-us")}
           className={menu === "contact-us" ? "active" : ""}>
           contact us
-        </li>
+        </a>
       </ul>
       <div className="navbar-right">
         <img src={assets.search_icon} alt="" />
@@ -37,7 +42,7 @@ const Navbar = () => {
           <img src={assets.basket_icon} alt="" />
           <div className="dot"></div>
         </div>
-        <button>sign In</button>
+        <button onClick={() => setShowLogin(true)}>sign In</button>
       </div>
     </div>
   );
